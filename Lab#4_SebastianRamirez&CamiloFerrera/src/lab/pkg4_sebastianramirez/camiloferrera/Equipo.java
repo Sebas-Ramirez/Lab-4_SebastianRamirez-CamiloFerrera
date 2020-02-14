@@ -11,13 +11,11 @@ public class Equipo {
         this.partidosganados = partidosganados;
         this.partidosperdidos = partidosperdidos;
     }
-    public Equipo(String casa, int partidosganados, int partidosperdidos, int promedioagilidad, int promvelocidad, int promfuerza, Jugador capitan) {
+    public Equipo(String casa, int partidosganados, int partidosperdidos, Jugador capitan) {
         this.casa = casa;
         this.partidosganados = partidosganados;
         this.partidosperdidos = partidosperdidos;
-        this.promedioagilidad = promedioagilidad;
-        this.promvelocidad = promvelocidad;
-        this.promfuerza = promfuerza;
+        
         this.capitan = capitan;
     }
     public Equipo() {

@@ -1,6 +1,6 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
 
-public class Jugador {
+public abstract class Jugador {
     private String nombre, casa;
     private int añocurso, numuniforme;
     
@@ -45,5 +45,7 @@ public class Jugador {
     public void setNumuniforme(int numuniforme) {
         this.numuniforme = numuniforme;
     }
-    
+    public abstract double getVelocidad_inicial();
+    public abstract double getAgilidad();
+    public abstract double getFuerza();
 }

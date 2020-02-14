@@ -1,5 +1,5 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
-public class Golpeadores {
+public class Golpeadores extends Jugador{
     private double fuerza,agilidad;
 
     public Golpeadores() {
@@ -25,6 +25,11 @@ public class Golpeadores {
 
     public void setAgilidad(double reflejos) {
         this.agilidad = reflejos+7;
+    }
+
+    @Override
+    public double getVelocidad_inicial() {
+        return 0;
     }
     
 }

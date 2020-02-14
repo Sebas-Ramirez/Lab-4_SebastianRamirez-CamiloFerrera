@@ -1,5 +1,5 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
-public class Cazadores {
+public class Cazadores extends Jugador {
     private double velocidad_inicial,agilidad;
 
     public Cazadores() {
@@ -25,6 +25,11 @@ public class Cazadores {
 
     public void setAgilidad(double agilidad) {
         this.agilidad = agilidad;
+    }
+
+    @Override
+    public double getFuerza() {
+        return 0;
     }
     
 }
