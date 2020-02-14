@@ -48,4 +48,10 @@ public abstract class Jugador {
     public abstract double getVelocidad_inicial();
     public abstract double getAgilidad();
     public abstract double getFuerza();
+
+    @Override
+    public String toString() {
+        return "Jugador{" + "nombre=" + nombre + ", casa=" + casa + ", a\u00f1ocurso=" + añocurso + ", numuniforme=" + numuniforme + '}';
+    }
+    
 }

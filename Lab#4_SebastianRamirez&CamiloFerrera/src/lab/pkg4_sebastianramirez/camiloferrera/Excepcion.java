@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab.pkg4_sebastianramirez.camiloferrera;
+public class Excepcion extends Exception{
 
-/**
- *
- * @author cotip
- */
-public class Excepcion {
+    public Excepcion() {
+        super();
+    }
+    public void Casa(int num)throws Exception{
+        if(num>5||num<0)
+            throw new Exception();
+    }
     
 }
