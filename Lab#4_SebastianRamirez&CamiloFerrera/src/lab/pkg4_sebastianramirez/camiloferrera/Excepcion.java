@@ -4,9 +4,8 @@ public class Excepcion extends Exception{
     public Excepcion() {
         super();
     }
-    public void Casa(int num)throws Exception{
-        if(num>5||num<0)
-            throw new Exception();
+    public void Casa()throws Exception{    
+        throw new Exception();
     }
     
 }

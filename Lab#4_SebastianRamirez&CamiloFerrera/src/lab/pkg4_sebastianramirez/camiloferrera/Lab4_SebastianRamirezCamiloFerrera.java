@@ -16,11 +16,9 @@ public class Lab4_SebastianRamirezCamiloFerrera {
             
             switch (opcion) {
                 case "1":
-                    int x = 1;
                     CRUD(1);
                     break;
                 case "2":
-                    x = 2;
                     break;
                 default:
                     System.out.println("Opcion Incorrecta");
@@ -30,7 +28,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         }
     }
     
-    static void CRUD (int x){
+    static void CRUD (int x) throws Exception{
         System.out.println("1. Crear \n"
                 + "2. Modificar \n"
                 + "3. Eliminar \n"
@@ -46,21 +44,26 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                         String casa = SeleccionarCasa();
                         boolean validarcasa = ValidarCasa(casa);
                         while (validarcasa == false) {
-                            System.out.println();
-                            System.out.println("Ya hay un equipo con esta casa, seleccione otra.");
-                            System.out.println();
-                            casa = SeleccionarCasa();
-                            validarcasa = ValidarCasa(casa);
+                            Excepcion e = new Excepcion();
+                            e.Casa();
                         }
                         equipos.add(new Equipo (casa,0,0));
                         System.out.println();
                         System.out.println("Equipo Añadido Exitosamente");
                     } else {
-                        System.out.println("Ya existen 4 equipos");
+                        System.out.println("Ya existen 4 equipos, con su respectiva casa");
                     }
+                    break;
+                case "2":
+                    ModificarEquipos();
                     break;
                 case "3":
                     Eliminar(equipos);
+                    break;
+                case "4":
+                    for (int i = 0; i < equipos.size(); i++) {
+                        System.out.println("* " + equipos.get(i));
+                    }
                     break;
                 default:
                     System.out.println("Opción Incorrecta, regresando al menu principal...");
@@ -151,6 +154,67 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         System.out.println();
         
         x.remove(opcion);
-        System.out.println("Se ha eliminado exitosamente");
+        System.out.println("Se ha eliminado exitosamente.");
     }
+    
+    static void ModificarEquipos(){
+        for (int i = 0; i < equipos.size(); i++) {
+            System.out.println((i+1) + ". " + equipos.get(i).getCasa());
+        }
+        System.out.print("Seleccione equipo a modificar: ");
+        int opcionequipo = sc.nextInt();
+        opcionequipo--;
+        while (opcionequipo >= equipos.size() || opcionequipo < 0) {
+            System.out.println();
+            System.out.println("Equipo no encontrado, intende de nuevo");
+            System.out.println();
+            for (int i = 0; i < equipos.size(); i++) {
+                System.out.println((i+1) + ". " + equipos.get(i).getCasa());
+            }
+            System.out.print("Seleccione equipo a modificar: ");
+            opcionequipo = sc.nextInt();
+            opcionequipo--;
+        }
+        System.out.println();
+        
+        System.out.println("1. Casa \n"
+                + "2. Jugadores \n"
+                + "3. Capitan");
+        System.out.print("Ingrese opción de atributo a modificar: ");
+        int opcion = sc.nextInt();
+        
+        while (opcion < 1 || opcion > 3) {
+            System.out.println();
+            System.out.println("Opcion no valida, intente de nuevo.");
+            System.out.println();
+            System.out.println("1. Casa \n"
+                    + "2. Añadir Jugadores \n"
+                    + "3. Capitan");
+            System.out.print("Ingrese opción de atributo a modificar: ");
+            opcion = sc.nextInt();
+        }
+        System.out.println();
+        
+        switch (opcion) {
+            case 1:
+                String casa = SeleccionarCasa();
+                boolean validarcasa = ValidarCasa(casa);
+                while (validarcasa == false) {
+                    System.out.println();
+                    System.out.println("Ya hay un equipo con esta casa, seleccione otra.");
+                    System.out.println();
+                    casa = SeleccionarCasa();
+                    validarcasa = ValidarCasa(casa);
+                }
+                System.out.println();
+                equipos.get(opcionequipo).setCasa(casa);
+                System.out.println("Casa modificada exitosamente");
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
+    
 }
