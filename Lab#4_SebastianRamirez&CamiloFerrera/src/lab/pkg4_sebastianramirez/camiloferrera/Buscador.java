@@ -9,6 +9,11 @@ public class Buscador extends Jugador  {
         this.velocidad_inicial = (200/peso)*7;
     }
 
+    public Buscador(double peso, String nombre, String casa, int añocurso, int numuniforme) {
+        super(nombre, casa, añocurso, numuniforme);
+        this.velocidad_inicial = (200/peso)*7;
+    }
+
     public double getVelocidad_inicial() {
         return velocidad_inicial;
     }

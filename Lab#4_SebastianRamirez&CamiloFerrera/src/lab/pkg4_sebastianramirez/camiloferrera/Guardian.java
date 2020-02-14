@@ -6,8 +6,9 @@ public class Guardian extends Jugador{
         super();
     }
 
-    public Guardian(double reflejos) {
-       this.agilidad = reflejos+7;
+    public Guardian(double agilidad, String nombre, String casa, int añocurso, int numuniforme) {
+        super(nombre, casa, añocurso, numuniforme);
+        this.agilidad = agilidad+7;
     }
 
     public double getAgilidad() {

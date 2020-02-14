@@ -6,6 +6,13 @@ public class Golpeadores extends Jugador{
         super();
     }
 
+    public Golpeadores(double musculatura, double reflejos, String nombre, String casa, int añocurso, int numuniforme) {
+        super(nombre, casa, añocurso, numuniforme);
+        this.fuerza = (musculatura*2)-7;
+        this.agilidad = reflejos+7;;
+    }
+    
+    
     public Golpeadores(double musculatura , double reflejos) {
         this.fuerza = (musculatura*2)-7;
         this.agilidad = reflejos+7;

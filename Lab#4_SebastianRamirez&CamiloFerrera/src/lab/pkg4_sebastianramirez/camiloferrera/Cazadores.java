@@ -6,6 +6,12 @@ public class Cazadores extends Jugador {
         super();
     }
 
+    public Cazadores(double peso, double reflejos, String nombre, String casa, int añocurso, int numuniforme) {
+        super(nombre, casa, añocurso, numuniforme);
+        this.velocidad_inicial = (200/peso)*7;
+        this.agilidad = reflejos+7;
+    }
+    
     public Cazadores(double peso, double reflejos) {
         this.velocidad_inicial = (200/peso)*7;
         this.agilidad = reflejos+7;
