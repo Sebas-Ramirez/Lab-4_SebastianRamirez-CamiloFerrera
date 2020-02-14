@@ -6,11 +6,10 @@ public class Equipo {
     Jugador capitan;
     ArrayList<Jugador> jugadores = new ArrayList();
 
-    public Equipo(String casa, int partidosganados, int partidosperdidos, Jugador capitan) {
+    public Equipo(String casa, int partidosganados, int partidosperdidos) {
         this.casa = casa;
         this.partidosganados = partidosganados;
         this.partidosperdidos = partidosperdidos;
-        this.capitan = capitan;
     }
     public Equipo(String casa, int partidosganados, int partidosperdidos, int promedioagilidad, int promvelocidad, int promfuerza, Jugador capitan) {
         this.casa = casa;

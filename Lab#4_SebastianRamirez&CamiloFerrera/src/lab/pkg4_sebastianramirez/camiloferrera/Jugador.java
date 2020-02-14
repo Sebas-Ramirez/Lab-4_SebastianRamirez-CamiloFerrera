@@ -1,7 +1,49 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
 
 public class Jugador {
-    String nombre, casa;
-    int añocurso, numuniforme;
+    private String nombre, casa;
+    private int añocurso, numuniforme;
+    
+    public Jugador() {
+    }
+
+    public Jugador(String nombre, String casa, int añocurso, int numuniforme) {
+        this.nombre = nombre;
+        this.casa = casa;
+        this.añocurso = añocurso;
+        this.numuniforme = numuniforme;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCasa() {
+        return casa;
+    }
+
+    public void setCasa(String casa) {
+        this.casa = casa;
+    }
+
+    public int getAñocurso() {
+        return añocurso;
+    }
+
+    public void setAñocurso(int añocurso) {
+        this.añocurso = añocurso;
+    }
+
+    public int getNumuniforme() {
+        return numuniforme;
+    }
+
+    public void setNumuniforme(int numuniforme) {
+        this.numuniforme = numuniforme;
+    }
     
 }
