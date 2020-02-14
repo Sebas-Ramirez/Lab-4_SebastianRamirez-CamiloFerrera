@@ -65,8 +65,12 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                     Eliminar(equipos);
                     break;
                 case "4":
-                    for (int i = 0; i < equipos.size(); i++) {
-                        System.out.println((i+1) + ". " + equipos.get(i));
+                    if (equipos.size() == 0){
+                        System.out.println("No hay equipos creados, vaya al CRUD Equipos a crearlos.");
+                    } else {
+                             for (int i = 0; i < equipos.size(); i++) {
+                            System.out.println((i+1) + ". " + equipos.get(i));
+                        }
                     }
                     break;
                 default:
@@ -170,9 +174,14 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                     Eliminar(jugadores);
                     break;
                 case "4":
-                    for (int i = 0; i < jugadores.size(); i++) {
-                        System.out.println((i+1) + ". " + jugadores.get(i));
+                    if (jugadores.size() == 0){
+                        System.out.println("No hay jugadores creados aqui, vaya al CRUD Jugadores a crearlos.");
+                    } else {
+                        for (int i = 0; i < jugadores.size(); i++) {
+                            System.out.println((i+1) + ". " + jugadores.get(i));
+                        }
                     }
+                    break;
                 default:
                     System.out.println("Opción Incorrecta, regresando al menu principal...");
                     break;
