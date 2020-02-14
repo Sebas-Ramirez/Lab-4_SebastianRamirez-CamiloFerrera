@@ -7,16 +7,16 @@ public class Golpeadores extends Jugador{
     }
 
     public Golpeadores(double musculatura , double reflejos) {
-        setAgilidad(reflejos);
-        setFuerza(musculatura);
+        this.fuerza = (musculatura*2)-7;
+        this.agilidad = reflejos+7;
     }
 
     public double getFuerza() {
         return fuerza;
     }
 
-    public void setFuerza(double musculatura) {
-        this.fuerza = (musculatura*2)-7;
+    public void setFuerza(double fuerza) {
+        this.fuerza = fuerza;
     }
 
     public double getAgilidad() {
@@ -24,7 +24,7 @@ public class Golpeadores extends Jugador{
     }
 
     public void setAgilidad(double reflejos) {
-        this.agilidad = reflejos+7;
+        this.agilidad = agilidad;
     }
 
     @Override

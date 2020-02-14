@@ -5,8 +5,8 @@ public class Buscador extends Jugador  {
     public Buscador() {
     }
 
-    public Buscador(double velocidad_inicial) {
-        this.velocidad_inicial = velocidad_inicial;
+    public Buscador(double peso) {
+        this.velocidad_inicial = (200/peso)*7;
     }
 
     public double getVelocidad_inicial() {

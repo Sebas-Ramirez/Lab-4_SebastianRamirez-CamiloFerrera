@@ -6,9 +6,9 @@ public class Cazadores extends Jugador {
         super();
     }
 
-    public Cazadores(double velocidad_inicial, double agilidad) {
-        this.velocidad_inicial = velocidad_inicial;
-        this.agilidad = agilidad;
+    public Cazadores(double peso, double reflejos) {
+        this.velocidad_inicial = (200/peso)*7;
+        this.agilidad = reflejos+7;
     }
 
     public double getVelocidad_inicial() {

@@ -7,15 +7,15 @@ public class Guardian extends Jugador{
     }
 
     public Guardian(double reflejos) {
-        setAgilidad(reflejos);
+       this.agilidad = reflejos+7;
     }
 
     public double getAgilidad() {
         return agilidad;
     }
 
-    public void setAgilidad(double reflejos) {
-        this.agilidad = reflejos+7;
+    public void setAgilidad(double agilidad) {
+       this.agilidad = agilidad;
     }
 
     @Override
