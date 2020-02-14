@@ -1,10 +1,11 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
 import java.util.ArrayList;
 public class Equipo {
-    String casa;
-    int partidosganados, partidosperdidos, promedioagilidad, promvelocidad, promfuerza;
+    private String casa;
+    private int partidosganados, partidosperdidos;
+    private double promedioagilidad, promvelocidad, promfuerza;
     Jugador capitan;
-    ArrayList<Jugador> jugadores = new ArrayList();
+    private ArrayList<Jugador> jugadores = new ArrayList();
 
     public Equipo(String casa, int partidosganados, int partidosperdidos) {
         this.casa = casa;
@@ -15,7 +16,6 @@ public class Equipo {
         this.casa = casa;
         this.partidosganados = partidosganados;
         this.partidosperdidos = partidosperdidos;
-        
         this.capitan = capitan;
     }
     public Equipo() {
@@ -30,13 +30,13 @@ public class Equipo {
     public int getPartidosperdidos() {
         return partidosperdidos;
     }
-    public int getPromedioagilidad() {
+    public double getPromedioagilidad() {
         return promedioagilidad;
     }
-    public int getPromvelocidad() {
+    public double getPromvelocidad() {
         return promvelocidad;
     }
-    public int getPromfuerza() {
+    public double getPromfuerza() {
         return promfuerza;
     }
     public Jugador getCapitan() {
@@ -55,20 +55,37 @@ public class Equipo {
     public void setPartidosperdidos(int partidosperdidos) {
         this.partidosperdidos = partidosperdidos;
     }
-    public void setPromedioagilidad(int promedioagilidad) {
-        this.promedioagilidad = promedioagilidad;
+    public void setPromedioagilidad() {
+        double promedio=0;
+        for (Jugador j : jugadores) {
+            promedio += j.getAgilidad();
+        }
+        this.promedioagilidad = promedio/7.0;
     }
-    public void setPromvelocidad(int promvelocidad) {
-        this.promvelocidad = promvelocidad;
+    public void setPromvelocidad() {
+        double promedio=0;
+        for (Jugador j : jugadores) {
+            promedio += j.getVelocidad_inicial();
+        }
+        this.promvelocidad = promedio/7.0;
     }
-    public void setPromfuerza(int promfuerza) {
-        this.promfuerza = promfuerza;
+    public void setPromfuerza() {
+        double promedio=0;
+        for (Jugador j : jugadores) {
+            promedio += j.getFuerza();
+        }
+        this.promfuerza = promedio/7.0;
     }
     public void setCapitan(Jugador capitan) {
         this.capitan = capitan;
     }
     public void setJugadores(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo{" + "casa=" + casa + ", partidosganados=" + partidosganados + ", partidosperdidos=" + partidosperdidos + ", promedioagilidad=" + promedioagilidad + ", promvelocidad=" + promvelocidad + ", promfuerza=" + promfuerza + ", capitan=" + capitan + ", jugadores=" + jugadores + '}';
     }
     
     
