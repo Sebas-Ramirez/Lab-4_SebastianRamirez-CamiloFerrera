@@ -8,14 +8,14 @@ public class Lab4_SebastianRamirezCamiloFerrera {
     static ArrayList<Jugador> jugadores = new ArrayList();
     static Random random = new Random();
     public static void main(String[] args) {
-        equipos.add(new Equipo("Heavenclaw",0,0));
-        equipos.get(0).getJugadores().add(new Guardian(9,"Superman","Heavenclaw",3,14));
-        equipos.get(0).getJugadores().add(new Golpeadores(9,7,"Batman","Heavenclaw",1,14));
-        equipos.get(0).getJugadores().add(new Golpeadores(9,8,"Joker","Heavenclaw",2,11));
-        equipos.get(0).getJugadores().add(new Cazadores(150,4,"Revenant","Heavenclaw",5,13));
-        equipos.get(0).getJugadores().add(new Cazadores(180,5,"Caustic","Heavenclaw",3,9));
-        equipos.get(0).getJugadores().add(new Cazadores(157,2,"Bangalore","Heavenclaw",3,3));
-        equipos.get(0).getJugadores().add(new Buscador(145,"Thor","Heavenclaw",3,8));
+        equipos.add(new Equipo("Ravenclaw",0,0));
+        equipos.get(0).getJugadores().add(new Guardian(9,"Superman","Ravenclaw",3,14));
+        equipos.get(0).getJugadores().add(new Golpeadores(9,7,"Batman","Ravenclaw",1,14));
+        equipos.get(0).getJugadores().add(new Golpeadores(9,8,"Joker","Ravenclaw",2,11));
+        equipos.get(0).getJugadores().add(new Cazadores(150,4,"Revenant","Ravenclaw",5,13));
+        equipos.get(0).getJugadores().add(new Cazadores(180,5,"Caustic","Ravenclaw",3,9));
+        equipos.get(0).getJugadores().add(new Cazadores(157,2,"Bangalore","Ravenclaw",3,3));
+        equipos.get(0).getJugadores().add(new Buscador(145,"Thor","Ravenclaw",3,8));
         equipos.add(new Equipo("Hufflepuff",0,0));
         equipos.get(1).getJugadores().add(new Guardian(11,"Andrea","Hufflepuff",3,2));
         equipos.get(1).getJugadores().add(new Golpeadores(12,5,"Diego","Hufflepuff",1,23));
@@ -25,6 +25,8 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         equipos.get(1).getJugadores().add(new Cazadores(136,10,"Carlos","Hufflepuff",3,19));
         equipos.get(1).getJugadores().add(new Buscador(189,"Josue","Hufflepuff",3,12));
         
+        System.out.println("-------Bienvenido a Quidditch-------");
+        System.out.println();
         while (true) {
             System.out.println("1. CRUD Equipos \n"
                     + "2. CRUD Jugadores \n"
@@ -593,19 +595,21 @@ public class Lab4_SebastianRamirezCamiloFerrera {
             System.out.println("No hay cantidad de equipos sufientes con los requisitos para jugar.");
         } else {
             for (int i = 0; i < equipos.size(); i++) {
-                System.out.println("["+i+"] "+equipos.get(i).getCasa());  
+                System.out.println((i+1) + ". " +equipos.get(i).getCasa());  
             }
             System.out.print("Ingrese el indice de la casa: ");
             int casa = sc.nextInt();
+            casa--;
             System.out.println();
             for (int i = 0; i < equipos.get(casa).getJugadores().size(); i++) {
-                System.out.println("["+i+"] "+equipos.get(casa).getJugadores().get(i).getNombre());
+                System.out.println((i+1) + ". " +equipos.get(casa).getJugadores().get(i).getNombre());
             }
-            System.out.print("Ingrese la posicion del jugador que desea utilizar: ");
+            System.out.print("Ingrese la posición del jugador que desea utilizar: ");
             int pos = sc.nextInt();
+            pos--;
             System.out.println();
             boolean juego;
-            int casaJ2=random.nextInt(4),jugadorJ2=random.nextInt(8);
+            int casaJ2=random.nextInt(equipos.size()),jugadorJ2=random.nextInt(7);
             System.out.print("1. Jugar Normal\n"
                     + "2. Hacer Trampa\n"
                     + "Ingrese su opcion: ");
