@@ -92,6 +92,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                                 System.out.println("Equipo Añadido Exitosamente!");
                             }
                         } catch (Exception e) {
+                            System.out.println();
                             System.out.println("No se encontro casa mediante String, regresando al menú principal...");
                         }
                             
