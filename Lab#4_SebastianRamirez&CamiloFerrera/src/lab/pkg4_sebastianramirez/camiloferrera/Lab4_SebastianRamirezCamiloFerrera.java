@@ -1,10 +1,12 @@
 package lab.pkg4_sebastianramirez.camiloferrera;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 public class Lab4_SebastianRamirezCamiloFerrera {
     static Scanner sc = new Scanner (System.in);
     static ArrayList<Equipo> equipos = new ArrayList();
     static ArrayList<Jugador> jugadores = new ArrayList();
+    static Random random = new Random();
     public static void main(String[] args) {
         while (true) {
             System.out.println("1. CRUD Equipos \n"
@@ -21,6 +23,12 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                 case "2":
                     CRUD(2);
                     break;
+                case "3":
+                    simulacion();
+                    break;
+                case "0":
+                    System.exit(0);
+                    
                 default:
                     System.out.println("Opcion Incorrecta");
                     break;
@@ -519,5 +527,122 @@ public class Lab4_SebastianRamirezCamiloFerrera {
             }
         }
         return valido;
+    }
+    static void simulacion(){
+        for (int i = 0; i < equipos.size(); i++) {
+            System.out.println("["+i+"] "+equipos.get(i).getCasa());  
+        }
+        System.out.print("Ingrese el indice de la casa: ");
+        int casa = sc.nextInt();
+        for (int i = 0; i < equipos.get(casa).getJugadores().size(); i++) {
+            System.out.println("["+i+"] "+equipos.get(casa).getJugadores().get(i).getNombre());
+        }
+        System.out.print("Ingrese la posicion del jugador que desea utilizar: ");
+        int pos = sc.nextInt();
+        boolean juego;
+        int casaJ2=random.nextInt(),jugadorJ2=random.nextInt();
+        System.out.println("1. Jugar Normal\n"
+                + "2. Hacer Trampa\n"
+                + "Ingrese su opcion: ");
+        switch (sc.nextInt()) {
+            case 1:
+                if (equipos.get(casa).getJugadores().get(pos) instanceof Guardian) {
+                    if (equipos.get(casa).getJugadores().get(pos).getAgilidad()<equipos.get(casaJ2).getJugadores().get(jugadorJ2).getVelocidad_inicial()) {
+                        juego = true;
+                        System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +"intento tapar el gol "+juego);
+                        if (juego) {
+                            equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()+8);
+                        }
+                    }          
+                }else if(equipos.get(casa).getJugadores().get(pos) instanceof Golpeadores){
+                    System.out.println("1. Atacar\n"
+                            + "2. Defender\n"
+                            + "Ingrese opcion: ");
+                    switch (sc.nextInt()) {
+                        case 1:
+                            if (equipos.get(casa).getJugadores().get(pos).getFuerza()*2+1 < equipos.get(casaJ2).getJugadores().get(jugadorJ2).getFuerza()*2) {
+                                juego = true;
+                                System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +" intento atacar "+juego);
+                                if (juego) {
+                                    equipos.get(casa).getJugadores().get(pos).setFuerza(equipos.get(casa).getJugadores().get(pos).getFuerza()+10);
+                                }
+                            }
+                            break;
+                        case 2:
+                            if (equipos.get(casa).getJugadores().get(pos).getAgilidad()/2+7 > equipos.get(casaJ2).getJugadores().get(jugadorJ2).getAgilidad()) {
+                                juego = true;
+                                System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +" intento defender "+juego);
+                                if (juego) {
+                                    equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()+10);
+                                }
+                            }
+                            break;
+                        default:
+                            throw new AssertionError();
+                    } 
+                }else if(equipos.get(casa).getJugadores().get(pos) instanceof Cazadores){
+                    if (equipos.get(casa).getJugadores().get(pos).getAgilidad()+equipos.get(casa).getJugadores().get(pos).getVelocidad_inicial()>=equipos.get(casaJ2).getJugadores().get(jugadorJ2).getAgilidad()) {
+                        juego = true;
+                        System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +"intento meter el gol "+juego);
+                        if (juego) {
+                            equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()+6);
+                            equipos.get(casa).getJugadores().get(pos).setVelocidad_inicial(equipos.get(casa).getJugadores().get(pos).getVelocidad_inicial()+6);
+                        }
+                    }     
+                }else if(equipos.get(casa).getJugadores().get(pos) instanceof Buscador){
+                    if(equipos.get(casa).getJugadores().get(pos).getVelocidad_inicial()/14+14>=equipos.get(casaJ2).getJugadores().get(jugadorJ2).getVelocidad_inicial()){
+                        juego = true;
+                         System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +"intento atrapar la snitch "+juego);
+                    }
+                }equipos.get(casa).getJugadores().get(pos).setVelocidad_inicial(equipos.get(casa).getJugadores().get(pos).getVelocidad_inicial()+1);
+                break;
+            case 2:
+                if(equipos.get(casa).getJugadores().get(pos) instanceof Buscador){
+                    int chance = random.nextInt(101);
+                    System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +" intento intento atraer la snitch ");
+                    if (chance>0&&chance<=5) {
+                        System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +" atrapo la snitch ");
+                        System.out.println("Ganaron el juego");
+                    }else{
+                        System.out.println("Perdieron el juego y quedan descalificados");
+                        break;
+                    }
+                }else if(equipos.get(casa).getJugadores().get(pos) instanceof Golpeadores){
+                    int chance = random.nextInt(101);
+                    if (chance>0&&chance<=22) {
+                        System.out.println(""+equipos.get(casa).getJugadores().get(pos).getNombre()+"("+equipos.get(casa).getJugadores().get(pos).getCasa()
+                                +" creo una burbuja magica ");
+                        equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()+10);
+                        equipos.get(casa).getJugadores().get(pos).setFuerza(equipos.get(casa).getJugadores().get(pos).getFuerza()+10);
+                    }else{
+                        equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()-15);
+                        equipos.get(casa).getJugadores().get(pos).setFuerza(equipos.get(casa).getJugadores().get(pos).getFuerza()-10);
+                        break;
+                    }
+                }else if(equipos.get(casa).getJugadores().get(pos) instanceof Cazadores){
+                    int chance  = random.nextInt(101);
+                    if (chance>0||chance<=10) {
+                        equipos.get(casa).getJugadores().get(pos).setAgilidad(equipos.get(casa).getJugadores().get(pos).getAgilidad()+8);
+                        equipos.get(casa).getJugadores().get(pos).setVelocidad_inicial(equipos.get(casa).getJugadores().get(pos).getVelocidad_inicial()+5);
+                    }else{
+                        equipos.get(casa).getJugadores().get(pos).setVelocidad_inicial(3);
+                    } 
+                }else if (equipos.get(casa).getJugadores().get(pos) instanceof Guardian){
+                    int chance = random.nextInt(101);
+                    if (chance>0||chance<=13) {
+                        
+                    }
+                }
+                break;
+            default:
+                throw new AssertionError();   
+        }
     }
 }

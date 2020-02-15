@@ -31,5 +31,18 @@ public class Buscador extends Jugador  {
     public double getFuerza() {
         return 0;
     }
+
+    @Override
+    public void setAgilidad(double agilidad) {
+        
+    }
+
+    @Override
+    public void setFuerza(double fuerza) {
+        
+    }
+
+
+    
     
 }

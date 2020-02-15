@@ -37,5 +37,12 @@ public class Cazadores extends Jugador {
     public double getFuerza() {
         return 0;
     }
+
+    @Override
+    public void setFuerza(double fuerza) {
+        
+    }
+
+    
     
 }

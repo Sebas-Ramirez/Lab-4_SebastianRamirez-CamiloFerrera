@@ -48,7 +48,9 @@ public abstract class Jugador {
     public abstract double getVelocidad_inicial();
     public abstract double getAgilidad();
     public abstract double getFuerza();
-
+    public abstract void setVelocidad_inicial(double velocidad);
+    public abstract void setAgilidad(double agilidad);
+    public abstract void setFuerza(double fuerza);
     @Override
     public String toString() {
         return "Jugador{" + "nombre=" + nombre + ", casa=" + casa + ", a\u00f1ocurso=" + añocurso + ", numuniforme=" + numuniforme + '}';

@@ -38,5 +38,12 @@ public class Golpeadores extends Jugador{
     public double getVelocidad_inicial() {
         return 0;
     }
+
+    @Override
+    public void setVelocidad_inicial(double velocidad) {
+        
+    }
+
+    
     
 }

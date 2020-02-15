@@ -28,6 +28,20 @@ public class Guardian extends Jugador{
     public double getFuerza() {
         return 0;
     }
+
+    @Override
+    public void setVelocidad_inicial(double velocidad) {
+        
+    }
+
+    @Override
+    public void setFuerza(double fuerza) {
+        
+    }
+
+    
+
+    
     
             
 }
