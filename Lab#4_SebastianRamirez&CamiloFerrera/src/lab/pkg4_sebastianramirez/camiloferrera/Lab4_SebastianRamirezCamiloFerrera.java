@@ -76,7 +76,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                     if (equipos.size() == 0){
                         System.out.println("No hay equipos creados, vaya al CRUD Equipos a crearlos.");
                     } else {
-                             for (int i = 0; i < equipos.size(); i++) {
+                        for (int i = 0; i < equipos.size(); i++) {
                             System.out.println((i+1) + ". " + equipos.get(i));
                         }
                     }
@@ -342,6 +342,8 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                 case 2:
                     if (jugadores.size() == 0){
                         System.out.println("No hay jugadores creados, vaya al CRUD Jugadores");
+                    } else if (jugadores.size() == 7) {
+                        System.out.println("El equipo esta lleno, no se pueden añadir jugadores.");
                     } else {
                         for (int i = 0; i < jugadores.size(); i++) {
                             System.out.println((i+1) + ". " + jugadores.get(i));
