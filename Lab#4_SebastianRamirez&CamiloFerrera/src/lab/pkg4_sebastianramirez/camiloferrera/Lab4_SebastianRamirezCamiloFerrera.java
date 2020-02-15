@@ -8,6 +8,23 @@ public class Lab4_SebastianRamirezCamiloFerrera {
     static ArrayList<Jugador> jugadores = new ArrayList();
     static Random random = new Random();
     public static void main(String[] args) {
+        equipos.add(new Equipo("Heavenclaw",0,0));
+        equipos.get(0).getJugadores().add(new Guardian(9,"Superman","Heavenclaw",3,14));
+        equipos.get(0).getJugadores().add(new Golpeadores(9,7,"Batman","Heavenclaw",1,14));
+        equipos.get(0).getJugadores().add(new Golpeadores(9,8,"Joker","Heavenclaw",2,11));
+        equipos.get(0).getJugadores().add(new Cazadores(150,4,"Revenant","Heavenclaw",5,13));
+        equipos.get(0).getJugadores().add(new Cazadores(180,5,"Caustic","Heavenclaw",3,9));
+        equipos.get(0).getJugadores().add(new Cazadores(157,2,"Bangalore","Heavenclaw",3,3));
+        equipos.get(0).getJugadores().add(new Buscador(145,"Thor","Heavenclaw",3,8));
+        equipos.add(new Equipo("Hufflepuff",0,0));
+        equipos.get(1).getJugadores().add(new Guardian(11,"Andrea","Hufflepuff",3,2));
+        equipos.get(1).getJugadores().add(new Golpeadores(12,5,"Diego","Hufflepuff",1,23));
+        equipos.get(1).getJugadores().add(new Golpeadores(14,8,"Osman","Hufflepuff",2,45));
+        equipos.get(1).getJugadores().add(new Cazadores(155,6,"Juan","Hufflepuff",5,25));
+        equipos.get(1).getJugadores().add(new Cazadores(167,9,"Osvaldo","Hufflepuff",3,27));
+        equipos.get(1).getJugadores().add(new Cazadores(136,10,"Carlos","Hufflepuff",3,19));
+        equipos.get(1).getJugadores().add(new Buscador(189,"Josue","Hufflepuff",3,12));
+        
         while (true) {
             System.out.println("1. CRUD Equipos \n"
                     + "2. CRUD Jugadores \n"
@@ -38,22 +55,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
     }
     
     static void CRUD (int x){
-        equipos.add(new Equipo("Heavenclaw",0,0));
-        equipos.get(0).getJugadores().add(new Guardian(9,"Superman","Heavenclaw",3,14));
-        equipos.get(0).getJugadores().add(new Golpeadores(9,7,"Batman","Heavenclaw",1,14));
-        equipos.get(0).getJugadores().add(new Golpeadores(9,8,"Joker","Heavenclaw",2,11));
-        equipos.get(0).getJugadores().add(new Cazadores(150,4,"Revenant","Heavenclaw",5,13));
-        equipos.get(0).getJugadores().add(new Cazadores(180,5,"Caustic","Heavenclaw",3,9));
-        equipos.get(0).getJugadores().add(new Cazadores(157,2,"Bangalore","Heavenclaw",3,3));
-        equipos.get(0).getJugadores().add(new Buscador(145,"Thor","Heavenclaw",3,8));
-        equipos.add(new Equipo("Hufflepuff",0,0));
-        equipos.get(1).getJugadores().add(new Guardian(11,"Andrea","Hufflepuff",3,2));
-        equipos.get(1).getJugadores().add(new Golpeadores(12,5,"Diego","Hufflepuff",1,23));
-        equipos.get(1).getJugadores().add(new Golpeadores(14,8,"Osman","Hufflepuff",2,45));
-        equipos.get(1).getJugadores().add(new Cazadores(155,6,"Juan","Hufflepuff",5,25));
-        equipos.get(1).getJugadores().add(new Cazadores(167,9,"Osvaldo","Hufflepuff",3,27));
-        equipos.get(1).getJugadores().add(new Cazadores(136,10,"Carlos","Hufflepuff",3,19));
-        equipos.get(1).getJugadores().add(new Buscador(189,"Josue","Hufflepuff",3,12));
+        
         System.out.println("1. Crear \n"
                 + "2. Modificar \n"
                 + "3. Eliminar \n"
@@ -586,6 +588,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         }
         System.out.print("Ingrese el indice de la casa: ");
         int casa = sc.nextInt();
+        System.out.println();
         for (int i = 0; i < equipos.get(casa).getJugadores().size(); i++) {
             System.out.println("["+i+"] "+equipos.get(casa).getJugadores().get(i).getNombre());
         }
@@ -593,7 +596,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         int pos = sc.nextInt();
         boolean juego;
         int casaJ2=random.nextInt(),jugadorJ2=random.nextInt();
-        System.out.println("1. Jugar Normal\n"
+        System.out.print("1. Jugar Normal\n"
                 + "2. Hacer Trampa\n"
                 + "Ingrese su opcion: ");
         switch (sc.nextInt()) {
@@ -608,7 +611,7 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                         }
                     }          
                 }else if(equipos.get(casa).getJugadores().get(pos) instanceof Golpeadores){
-                    System.out.println("1. Atacar\n"
+                    System.out.print("1. Atacar\n"
                             + "2. Defender\n"
                             + "Ingrese opcion: ");
                     switch (sc.nextInt()) {
@@ -694,7 +697,8 @@ public class Lab4_SebastianRamirezCamiloFerrera {
                 }
                 break;
             default:
-                throw new AssertionError();   
+                System.out.println("Opcion Incorrecta");
+                break;
         }
     }
 }
