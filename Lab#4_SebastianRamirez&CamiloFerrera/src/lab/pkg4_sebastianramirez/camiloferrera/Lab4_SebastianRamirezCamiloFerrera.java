@@ -50,18 +50,51 @@ public class Lab4_SebastianRamirezCamiloFerrera {
             switch (opcion) {
                 case "1":
                     if (equipos.size() < 4){
-                        String casa = SeleccionarCasa();
-                        boolean validarcasa = ValidarCasa(casa);
-                        while (validarcasa == false) {
-                            System.out.println();
-                            System.out.println("Ya hay un equipo con esta casa, seleccione otra.");
-                            System.out.println();
-                            casa = SeleccionarCasa();
-                            validarcasa = ValidarCasa(casa);
+                        try {
+                            System.out.println("1. Gryffindor \n"
+                                    + "2. Slytherin \n"
+                                    + "3. Ravenclaw \n"
+                                    + "4. Hufflepuff");
+                            System.out.print("Seleccione opción de la casa: ");
+                            int opcioncasa = sc.nextInt();
+
+                            while (opcioncasa < 1 || opcioncasa > 4) {
+                                System.out.println();
+                                System.out.println("Casa no encontrada, intente de nuevo...");
+                                System.out.println();
+                                System.out.println("1. Gryffindor \n"
+                                        + "2. Slytherin \n"
+                                        + "3. Ravenclaw \n"
+                                        + "4. Hufflepuff");
+                                System.out.print("Seleccione opción de la casa: ");
+                                opcioncasa = sc.nextInt();
+                            }
+
+                            if (opcioncasa == 1){
+                                String casa = "Gryffindor";
+                                equipos.add(new Equipo (casa,0,0));
+                                System.out.println();
+                                System.out.println("Equipo Añadido Exitosamente!");
+                            } else if (opcioncasa == 2){
+                                String casa = "Slytherin";
+                                equipos.add(new Equipo (casa,0,0));
+                                System.out.println();
+                                System.out.println("Equipo Añadido Exitosamente!");
+                            } else if (opcioncasa == 3){
+                                String casa = "Ravenclaw";
+                                equipos.add(new Equipo (casa,0,0));
+                                System.out.println();
+                                System.out.println("Equipo Añadido Exitosamente!");
+                            } else if (opcioncasa == 4){
+                                String casa = "Hufflepuff";
+                                equipos.add(new Equipo (casa,0,0));
+                                System.out.println();
+                                System.out.println("Equipo Añadido Exitosamente!");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("No se encontro casa mediante String, regresando al menú principal...");
                         }
-                        equipos.add(new Equipo (casa,0,0));
-                        System.out.println();
-                        System.out.println("Equipo Añadido Exitosamente!");
+                            
                     } else {
                         System.out.println("Ya existen 4 equipos, con su respectiva casa.");
                     }
@@ -88,8 +121,8 @@ public class Lab4_SebastianRamirezCamiloFerrera {
         } else {
             switch (opcion) {
                 case "1":
-                    if (equipos.size() == 0){
-                        System.out.println("No hay equipos creados, por lo tanto no se pueden crear jugadores.");
+                    if (jugadores.size() == 0){
+                        System.out.println("No hay jugadores creados, por lo tanto no se pueden crear jugadores.");
                     } else {
                         System.out.print("Ingrese nombre: ");
                         sc.nextLine();
